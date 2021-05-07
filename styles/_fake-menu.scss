@@ -1,0 +1,16 @@
+ul#fake-menu {
+  display: flex;
+  justify-content: center;
+  list-style: none;
+  li {
+    text-transform: uppercase;
+    color: $font-muted;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    &:hover {
+      color: $font;
+      text-decoration: underline;
+      transition: color 0.3s;
+    }
+  }
+}
