@@ -1,10 +1,9 @@
 import Head from 'next/head'
-import Image from 'next/image'
 import FakeMenu from '../components/FakeMenu'
-import data from '/public/data.json'
+import ProductGrid from '../components/ProductGrid'
+import { groups as products } from "/public/data.json";
 
 export default function Home() {
-  console.log('data', data)
   return (
     <div >
       <Head>
@@ -18,9 +17,10 @@ export default function Home() {
         <FakeMenu />
       </header>
       <main >
-
+        <div className="container">
+          <ProductGrid products={products} />
+        </div>
       </main>
-
       <footer >
       </footer>
     </div>

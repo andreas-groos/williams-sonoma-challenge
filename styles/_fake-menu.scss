@@ -1,14 +1,15 @@
 ul#fake-menu {
   display: flex;
   justify-content: center;
+  flex-flow: wrap;
   list-style: none;
   li {
     text-transform: uppercase;
-    color: $font-muted;
+    color: $font-color-muted;
     padding: 1rem 2rem;
     cursor: pointer;
     &:hover {
-      color: $font;
+      color: $font-color;
       text-decoration: underline;
       transition: color 0.3s;
     }
