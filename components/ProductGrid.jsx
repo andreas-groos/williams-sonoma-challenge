@@ -1,5 +1,6 @@
 import React from "react";
 import PropTypes from "prop-types";
+import ProductCard from "./ProductCard";
 
 export default function ProductGrid({ products }) {
   console.log("products", products);
@@ -7,9 +8,7 @@ export default function ProductGrid({ products }) {
     <div id="product-grid">
       <ul>
         {products.map((p) => (
-          <li key={p.id}>
-            <p>{p.name.replace("&amp;", "&")}</p>
-          </li>
+          <ProductCard key={p.id} product={p} />
         ))}
       </ul>
     </div>
