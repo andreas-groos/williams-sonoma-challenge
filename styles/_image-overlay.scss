@@ -1,0 +1,61 @@
+%border-radius {
+  border-radius: 1rem;
+}
+#modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  z-index: 2;
+  background: rgba(0, 0, 0, 0.6);
+  @extend %centered;
+  #carousel {
+    z-index: 3;
+    @extend %border-radius;
+    #no-image {
+      width: 400px;
+      display: flex;
+      @extend %centered;
+      background: $gray;
+      @extend %border-radius;
+      p {
+        color: white;
+      }
+    }
+    .img-wrapper {
+      position: relative;
+      border-radius: 1rem;
+      @extend %border-radius;
+      overflow: hidden;
+      .left,
+      .right {
+        position: absolute;
+        top: 40%;
+      }
+      .left {
+        right: 0.5rem;
+      }
+      .right {
+        left: 0.5rem;
+      }
+    }
+    .image-dots {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: $gray;
+      height: 2rem;
+      > div {
+        height: 0.5rem;
+        width: 0.5rem;
+        border: 1px solid white;
+        border-radius: 0.5rem;
+        margin: 0 0.5rem;
+        &.active {
+          background: white;
+        }
+      }
+    }
+  }
+}

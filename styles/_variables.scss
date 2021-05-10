@@ -3,6 +3,7 @@
 $bg: #f8f8ff;
 $font-color: #212529;
 $font-color-muted: #495057;
+$gray: gray;
 
 // grid
 
@@ -14,3 +15,9 @@ $grid-gap: 1rem;
 $container-width: 1200px;
 $mobile-breakpoint: 480px;
 $tablet-breakpoint: 960px;
+
+%centered {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

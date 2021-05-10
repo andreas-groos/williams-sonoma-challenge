@@ -1,28 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import PropTypes from "prop-types";
 import Img from "next/image";
 import PlaceholderImg from "./PlaceholderImg";
+import ImgOverlay from './ImageOverlay'
 
 function ProductCard({ product }) {
-  const { thumbnail } = product;
+  const [isShowingOverlay, setIsShowingOverlay] = useState(false)
+  const { hero, images } = product;
 
   const displayedPrice = () => {
     try {
       return product.price?.selling ? `On Sale: ${product.price.selling}$` : `${product.price.regular}$`
     }
     catch {
-      return `out of stock`
+      return `Out of stock`
     }
   }
 
   return (
-    <div className="product-card">
-      {thumbnail ? (
+    <div className="product-card" onClick={() => setIsShowingOverlay(true)}>
+      {hero ? (
         <Img
-          src={thumbnail.href}
-          alt={thumbnail.alt}
-          height={thumbnail.height}
-          width={thumbnail.width}
+          src={hero.href}
+          alt={hero.alt}
+          height={hero.height}
+          width={hero.width}
         />
       ) : (
         <PlaceholderImg />
@@ -34,11 +36,12 @@ function ProductCard({ product }) {
         <h1>ToDo?</h1>
       </div> */}
       <span className="price">{displayedPrice()}</span>
+      { isShowingOverlay && <ImgOverlay images={images} setIsShowingOverlay={setIsShowingOverlay} />}
     </div>
   );
 }
 
-const imgShapeType = PropTypes.shape({
+export const imgShapeType = PropTypes.shape({
   alt: PropTypes.string.isRequired,
   height: PropTypes.number.isRequired,
   href: PropTypes.string.isRequired,
