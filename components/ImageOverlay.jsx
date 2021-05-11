@@ -72,7 +72,7 @@ function ImageCarousel({ images, setIsShowingOverlay }) {
                   />
                 </div>
                 <div className="image-dots">
-                  {images.map((img, i) => <div key={i} className={i == imgIndex ? 'active' : ''} />)}
+                  {images.map((img, i) => <div key={i} onClick={() => setImgIndex(i)} className={i == imgIndex ? 'active' : ''} />)}
                 </div>
               </div>
             }
