@@ -4,13 +4,13 @@ import ProductCard from "./ProductCard";
 
 export default function ProductGrid({ products }) {
   return (
-    <div id="product-grid">
+    <section id="product-grid">
       <ul>
         {products.map((p) => (
           <ProductCard key={p.id} product={p} />
         ))}
       </ul>
-    </div>
+    </section>
   );
 }
 const imgShapeType = PropTypes.shape({

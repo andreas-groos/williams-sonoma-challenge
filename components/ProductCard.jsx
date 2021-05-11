@@ -32,9 +32,6 @@ function ProductCard({ product }) {
       <div className="product-name">
         <h2>{product.name.replace("&amp;", "&")}</h2>
       </div>
-      {/* <div className="description">
-        <h1>ToDo?</h1>
-      </div> */}
       <span className="price">{displayedPrice()}</span>
       { isShowingOverlay && <ImgOverlay images={images} setIsShowingOverlay={setIsShowingOverlay} />}
     </div>

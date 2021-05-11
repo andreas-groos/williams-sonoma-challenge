@@ -12,6 +12,7 @@
   @extend %centered;
   #carousel {
     z-index: 3;
+    padding: 1rem;
     @extend %border-radius;
     #no-image {
       width: 400px;

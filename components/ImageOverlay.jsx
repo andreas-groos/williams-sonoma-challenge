@@ -22,7 +22,7 @@ function ImageCarousel({ images, setIsShowingOverlay }) {
     }
   }, [leftKey, rightKey, escKey])
 
-  const arrowClick = (e, delta) => {
+  const arrowClick = (_, delta) => {
     let newIndex = imgIndex + delta
     if (newIndex === -1) {
       newIndex = images.length - 1
