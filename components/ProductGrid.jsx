@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import ProductCard from "./ProductCard";
 
 export default function ProductGrid({ products }) {
-  console.log("products", products);
   return (
     <div id="product-grid">
       <ul>

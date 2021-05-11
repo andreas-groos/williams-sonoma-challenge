@@ -1,15 +1,28 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import PropTypes from 'prop-types'
 import Img from "next/image";
-import { useLockBodyScroll } from '../lib/hooks'
+import { useLockBodyScroll, useKeyPress } from '../lib/hooks'
 
 function ImageCarousel({ images, setIsShowingOverlay }) {
   const [imgIndex, setImgIndex] = useState(0)
   useLockBodyScroll()
-  console.log('images', imgIndex)
+  const leftKey = useKeyPress('ArrowLeft')
+  const rightKey = useKeyPress('ArrowRight')
+  const escKey = useKeyPress('Escape')
+
+  useEffect(() => {
+    if (leftKey) {
+      arrowClick(null, -1)
+    }
+    if (rightKey) {
+      arrowClick(null, 1)
+    }
+    if (escKey) {
+      setIsShowingOverlay(false)
+    }
+  }, [leftKey, rightKey, escKey])
 
   const arrowClick = (e, delta) => {
-    e.stopPropagation()
     let newIndex = imgIndex + delta
     if (newIndex === -1) {
       newIndex = images.length - 1
@@ -19,14 +32,13 @@ function ImageCarousel({ images, setIsShowingOverlay }) {
     }
     setImgIndex(newIndex)
   }
-  console.log('imgIndex', imgIndex)
 
   return (
     <div id="modal-background" onClick={(e) => {
       setIsShowingOverlay(false)
       e.stopPropagation()
     }}>
-      <div id="carousel">
+      <div id="carousel" onClick={e => e.stopPropagation()}> {/* prevents modal from closing on clicking on the nested elements  */}
         {images.length === 0 ?
           <div id="no-image">
             <p>No Images Available</p>
